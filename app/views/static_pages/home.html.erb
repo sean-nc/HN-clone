@@ -1,16 +1,10 @@
-<% @news.each do |news| %>
-  <%= @n += 1 %>.^
-  <%= link_to news[:title], news[:url] %>
-  <% unless news[:url].blank? %>
-    (<%= link_to news_url(news[:url]), "https://news.ycombinator.com/from?site=#{news_url(news[:url])}" %>)
-  <% end %>
-  <br/>
-
-  <%= news[:score] %> points by
-  <%= link_to news[:by], "https://news.ycombinator.com/user?id=#{news[:by]}" %>
-  <%= link_to news_time(news[:time]), "https://news.ycombinator.com/item?id=#{news[:id]}" %>
-  | <%= link_to "hide", "https://news.ycombinator.com/hide?id=#{news[:id]}&goto=news" %> |
-  <%= link_to news_comments(news[:descendants]), "https://news.ycombinator.com/item?id=#{news[:id]}" %>
-  <br/>
-  <br/>
+<% unless @response.blank? %>
+  <div class="news">
+    <% @response[@shift..(@shift+29)].each do |id| %>
+      <%= render 'snippet', id: id %>
+    <% end %>
+  </div>
+  <div id="more">
+    <button>Load More</button>
+  </div>
 <% end %>
