@@ -4,15 +4,11 @@ class StaticPagesController < ApplicationController
 
   def home
     url = "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty"
-    @response = JSON.parse(open(url).read)
-    per_page = 15
+    @response = JSON.parse(open(url).read).take(5)
+    per_page = 30
     @response = @response.paginate(page: params[:page], per_page: per_page)
 
-    if params[:page].blank?
-      @n = 0
-    else
-      @n = per_page * (params[:page].to_i - 1)
-    end
+    params[:page].blank? ? @n = 0 : @n = per_page * (params[:page].to_i - 1)
 
     respond_to do |format|
       format.html

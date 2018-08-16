@@ -4,4 +4,5 @@ $('#news').append("<%= j render(partial: 'snippets', collection: @response, as: 
 <% else %>
   $(window).off('scroll');
   $('.pagination').remove();
+  $('#news').append("End of pages")
 <% end %>
