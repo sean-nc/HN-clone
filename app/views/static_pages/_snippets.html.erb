@@ -2,18 +2,27 @@
   <% news = JSON.parse(open(
                  "https://hacker-news.firebaseio.com/v0/item/#{id}.json?print=pretty"
                ).read, symbolize_names: true) %>
-  <%= @n += 1 %>.^
-  <%= link_to news[:title], news[:url] %>
-  <% unless news[:url].blank? %>
-    (<%= link_to news_url(news[:url]), "https://news.ycombinator.com/from?site=#{news_url(news[:url])}" %>)
-  <% end %>
-  <br/>
+  <div>
+    <%= @n += 1 %>.<span class="triangle-symbol">&#x25B2;</span>
+  </div>
+  <div>
+    <div class="snippet-top">
+      <%= link_to news[:title], news[:url] %>
+      <% unless news[:url].blank? %>
+        <span class="snippet-url">
+          (<%= link_to news_url(news[:url]), "https://news.ycombinator.com/from?site=#{news_url(news[:url])}" %>)
+        </span>
+      <% end %>
+    </div>
 
-  <%= news[:score] %> points by
-  <%= link_to news[:by], "https://news.ycombinator.com/user?id=#{news[:by]}" %>
-  <%= link_to news_time(news[:time]), "https://news.ycombinator.com/item?id=#{news[:id]}" %>
-  | <%= link_to "hide", "https://news.ycombinator.com/hide?id=#{news[:id]}&goto=news" %> |
-  <%= link_to news_comments(news[:descendants]), "https://news.ycombinator.com/item?id=#{news[:id]}" %>
-  <br/>
-  <br/>
+    <div class="snippet-bottom">
+      <span><%= news[:score] %> points</span>
+      <span>by <%= link_to news[:by], "https://news.ycombinator.com/user?id=#{news[:by]}" %></span>
+      <span><%= link_to news_time(news[:time]), "https://news.ycombinator.com/item?id=#{news[:id]}" %></span>
+      |
+      <span><%= link_to "hide", "https://news.ycombinator.com/hide?id=#{news[:id]}&goto=news" %></span>
+      |
+      <span><%= link_to news_comments(news[:descendants]), "https://news.ycombinator.com/item?id=#{news[:id]}" %></span>
+    </div>
+  </div>
 </div>

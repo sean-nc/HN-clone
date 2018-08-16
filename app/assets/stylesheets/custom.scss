@@ -1,9 +1,26 @@
 html {
   font-size: 10px;
   font-family: Verdana, Geneva, sans-serif;
+  width: 100%;
 }
 
 body {
   font-size: 1rem;
   color: #828282;
+
+  @media only screen and (min-width: 46.9375em) {
+    margin: 0 0.8rem;
+  }
+}
+
+div {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
+#infinite-scrolling {
+  a:link, a:visited, a:hover, a:active {
+    color: rgb(246, 246, 239);
+  }
 }

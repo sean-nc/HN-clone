@@ -1,14 +1,26 @@
+
+//Mobile - 750px-
+////Header
+////Snippets
+////Footer
+
+//Web - 751px+
+////Header
+////Snippets
+////Footer
+
 .main-container {
   width: 100%;
+  background-color: rgb(246, 246, 239);
 }
 
 // Header - mobile
 .header {
-  width: 100%;
   background-color: rgb(255, 102, 0);
   display: flex;
   flex-direction: row;
-  padding: 0.2rem;
+  padding: 0.5rem 0.2rem;
+  margin-bottom: 1rem;
 
   .logo {
     display: flex;
@@ -52,6 +64,7 @@
       }
     }
   }
+
   .login {
     display: flex;
     flex-direction: column;
@@ -64,8 +77,91 @@
       font-size: 1.2rem;
       text-decoration: none;
       line-height: 1.2rem;
-      padding-right: 0.4rem;
+      padding-right: 0.6rem;
+      text-align: right;
+    }
+  }
+}
 
+// Snippet - mobile
+.news-snippet {
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 0.3rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: #828282;
+  line-height: 1.8rem;
+
+  a:link, a:hover, a:active {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: #828282;
+    text-decoration: none;
+  }
+
+
+
+  .triangle-symbol {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+  }
+
+  .snippet-top {
+    font-size: 1.5rem;
+
+    .snippet-url {
+      font-size: 1.1rem;
+
+      a:link, a:hover, a:active {
+        color: #828282;
+      }
+    }
+  }
+
+  .snippet-bottom {
+    font-size: 1.2rem;
+
+    span {
+      display: inline-block;
+    }
+
+    a:link, a:hover, a:active {
+      color: #828282;
+    }
+  }
+}
+
+// Footer - mobile
+.footer {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1.3rem;
+  border-top: 0.2rem solid rgb(255, 102, 0);
+
+  a:link, a:hover, a:active {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: #828282;
+    text-decoration: none;
+  }
+
+  .search {
+    margin: 2rem 0 0;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+
+    input {
+      width: 90%;
     }
   }
 }
@@ -73,11 +169,13 @@
 @media only screen and (min-width: 46.9375em) {
   .main-container {
     width: 85%;
-    margin: 0 auto;
+    margin: 0.8rem auto;
   }
 
   // Header - web
   .header {
+    padding: 0.2rem;
+
     .header-links {
       flex-direction: row;
       padding: 0;
@@ -85,7 +183,7 @@
       line-height: 2rem;
       padding: 0;
       margin: 0;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
 
       .heading {
         padding: 0 1rem 0 0;
@@ -99,6 +197,43 @@
     .login {
        a:link, a:visited, a:hover, a:active {
         text-align: right;
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  // Snippet - web
+  .news-snippet {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+
+    .triangle-symbol {
+      font-size: 1rem;
+    }
+
+    .snippet-top {
+      font-size: 1.4rem;
+
+      .snippet-url {
+        font-size: 1rem;
+      }
+    }
+
+    .snippet-bottom {
+      font-size: 1rem;
+    }
+  }
+
+
+  // Footer - web
+  .footer {
+    .search {
+      margin: 2rem 0 0;
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+
+      input {
+        width: auto;
       }
     }
   }
