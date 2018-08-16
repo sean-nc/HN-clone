@@ -1,8 +1,13 @@
-$('#news').append("<%= j render(partial: 'snippets', collection: @response, as: :id) %>")
+document.querySelector('#news').innerHTML +=("<%= j render(partial: 'snippets', collection: @response, as: :id) %>")
 <% if @response.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate @response %>');
+  var pagination = document.querySelector('.pagination');
+  var in_scroll = document.querySelector('#infinite-scrolling');
+  in_scroll.removeChild(pagination)
+  in_scroll.innerHTML = ('<%= j will_paginate @response %>');
 <% else %>
-  $(window).off('scroll');
-  $('.pagination').remove();
-  $('#news').append("End of pages")
+  document.querySelector('#news').innerHTML +=("End of pages")
+  var pagination = document.querySelector('.pagination');
+  var in_scroll = document.querySelector('#infinite-scrolling');
+  window.removeEventListener('scroll')
+  in_scroll.removeChild(pagination);
 <% end %>
