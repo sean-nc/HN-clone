@@ -1,0 +1,7 @@
+$('#news').append("<%= j render(partial: 'snippets', collection: @response, as: :id) %>")
+<% if @response.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @response %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

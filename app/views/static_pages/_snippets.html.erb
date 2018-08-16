@@ -1,7 +1,7 @@
 <div class="news-snippet">
   <% news = JSON.parse(open(
-                   "https://hacker-news.firebaseio.com/v0/item/#{id}.json?print=pretty"
-                 ).read, symbolize_names: true) %>
+                 "https://hacker-news.firebaseio.com/v0/item/#{id}.json?print=pretty"
+               ).read, symbolize_names: true) %>
   <%= @n += 1 %>.^
   <%= link_to news[:title], news[:url] %>
   <% unless news[:url].blank? %>

@@ -1,10 +1,9 @@
 <% unless @response.blank? %>
-  <div class="news">
-    <% @response[@shift..(@shift+29)].each do |id| %>
-      <%= render 'snippet', id: id %>
-    <% end %>
-  </div>
-  <div id="more">
-    <button>Load More</button>
+  <div id="news">
+    <%= render partial: 'snippets', collection: @response, as: :id %>
   </div>
 <% end %>
+
+<div id="infinite-scrolling">
+  <%= will_paginate @response %>
+</div>
