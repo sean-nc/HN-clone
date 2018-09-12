@@ -1,5 +1,5 @@
 # HACKER NEWS CLONE 
-####### using their API
+##### using their API
 
 * vanilla JavaScript only
 
